@@ -1,0 +1,312 @@
+[gd_scene load_steps=28 format=3 uid="uid://clv6snkmfph3y"]
+
+[ext_resource type="Texture2D" uid="uid://4ryng5k5awxr" path="res://Screenshot_2025-01-29_083510-removebg-preview.png" id="1_sd0me"]
+[ext_resource type="Script" path="res://player.gd" id="1_v63s3"]
+[ext_resource type="Texture2D" uid="uid://c16r6fhd044b2" path="res://basetball-removebg-preview.png" id="2_78uyh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dhky"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(0, 0, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyp04"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(0, 110, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3ydv"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(0, 220, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iupgx"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(0, 330, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsnjs"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(141, 0, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwnvs"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(141, 110, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv3k2"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(141, 220, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qrac"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(141, 330, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fyvm"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(282, 0, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeo1v"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(282, 110, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68coe"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(282, 220, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajriy"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(282, 330, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khkgm"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(423, 0, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2frkc"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(423, 110, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8hxb"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(423, 220, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ons4o"]
+atlas = ExtResource("2_78uyh")
+region = Rect2(423, 330, 141, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hab2e"]
+atlas = ExtResource("1_sd0me")
+region = Rect2(204, 0, 48, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g647o"]
+atlas = ExtResource("1_sd0me")
+region = Rect2(252, 0, 48, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llg1l"]
+atlas = ExtResource("1_sd0me")
+region = Rect2(684, 0, 48, 81)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chf5b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dhky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyp04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3ydv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iupgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsnjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwnvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv3k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qrac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fyvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeo1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68coe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajriy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khkgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2frkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8hxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ons4o")
+}],
+"loop": true,
+"name": &"basketball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hab2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g647o")
+}],
+"loop": true,
+"name": &"dribble right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llg1l")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_qvb1m"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("basketball:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(411, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("basketball:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(218, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("basketball:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ty3oc"]
+resource_name = "bounce_flip"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("basketball:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(39, -0.2, 0, 0.2, 0, 39, -0.2, 0, 0.2, 0, 39, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("basketball:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(42, -0.2, 0, 0.2, 0, 93, -0.2, 0, 0.2, 0, 49, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("basketball:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_civ73"]
+resource_name = "bounce"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("basketball:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-38.9999, -0.2, 0, 0.2, 0, -32, -0.2, 0, 0.2, 0, -36, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("basketball:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(42, -0.2, 0, 0.2, 0, 93, -0.2, 0, 0.2, 0, 49, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.2, 0.4)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("basketball:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k58u8"]
+_data = {
+"RESET": SubResource("Animation_qvb1m"),
+"bounce": SubResource("Animation_civ73"),
+"bounce_flip": SubResource("Animation_ty3oc")
+}
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_v63s3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_chf5b")
+animation = &"dribble right"
+frame_progress = 0.362418
+
+[node name="BoostBallAnimations" type="Sprite2D" parent="."]
+position = Vector2(812, 898)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(434.5, 178)
+scale = Vector2(4.05, 12.3)
+
+[node name="basketball" type="Sprite2D" parent="."]
+position = Vector2(411, 218)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_78uyh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k58u8")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(470, 218)
+scale = Vector2(0.1, 0.114)
+texture = ExtResource("2_78uyh")
