@@ -1,29 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4f7l1aebnne3"]
+[gd_scene load_steps=6 format=3 uid="uid://d4f7l1aebnne3"]
 
 [ext_resource type="Texture2D" uid="uid://cqcjjcuj0bod3" path="res://space-7709489_1280.jpg" id="1_aef54"]
 [ext_resource type="Texture2D" uid="uid://dkbty7hnl7kku" path="res://basketball court 3.jpg" id="2_sto18"]
+[ext_resource type="Texture2D" uid="uid://mricyngb0i03" path="res://OIP-removebg-preview (2).png" id="3_dtyoc"]
+[ext_resource type="PackedScene" uid="uid://clv6snkmfph3y" path="res://character_body_2d.tscn" id="4_pvsue"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oeupj"]
 
 [node name="main" type="Node2D"]
+position = Vector2(10, 0)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1029.0
+offset_left = -8.0
+offset_top = 1.0
+offset_right = 1015.0
 offset_bottom = 601.0
 color = Color(0.00566115, 0.00566115, 0.00566115, 1)
 
 [node name="Space-77094891280" type="Sprite2D" parent="."]
-position = Vector2(513.5, 300.5)
-scale = Vector2(0.810156, 0.838665)
+position = Vector2(503.75, 300.75)
+scale = Vector2(0.798828, 0.832406)
 texture = ExtResource("1_aef54")
 
 [node name="BasketballCourt3" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.470588)
-position = Vector2(513.25, 294)
-scale = Vector2(0.563998, 0.635438)
+position = Vector2(503, 278)
+scale = Vector2(0.556509, 0.641548)
 texture = ExtResource("2_sto18")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BasketballCourt3"]
+position = Vector2(7.86151, 206.532)
+scale = Vector2(93.1701, 3.58508)
 
 [node name="Oip-removebg-preview" type="Sprite2D" parent="."]
 position = Vector2(-134, 400)
 scale = Vector2(0.138136, 2.63333)
 texture = SubResource("CompressedTexture2D_oeupj")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(510.5, 165.5)
+scale = Vector2(51.65, 1.95)
+
+[node name="Oip-removebg-preview(2)" type="Sprite2D" parent="."]
+position = Vector2(949, 241)
+scale = Vector2(0.424925, 0.451333)
+texture = ExtResource("3_dtyoc")
+
+[node name="Oip-removebg-preview(2)2" type="Sprite2D" parent="."]
+position = Vector2(54, 234)
+scale = Vector2(0.424925, 0.451333)
+texture = ExtResource("3_dtyoc")
+flip_h = true
+
+[node name="world" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="player" parent="world" instance=ExtResource("4_pvsue")]
+position = Vector2(58, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(-39.5033, 1.04601)
+metadata/_edit_group_ = true
