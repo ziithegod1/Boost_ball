@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c34pk37ttxhiy"]
+
+[ext_resource type="Script" path="res://basketball.gd" id="1_58l1l"]
+[ext_resource type="Texture2D" uid="uid://c16r6fhd044b2" path="res://basetball-removebg-preview.png" id="1_lrdwi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gun82"]
+bounce = 0.52
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3j58"]
+radius = 11.0454
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s64ec"]
+radius = 13.0
+
+[node name="basketball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_gun82")
+script = ExtResource("1_58l1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_lrdwi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s3j58")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s64ec")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

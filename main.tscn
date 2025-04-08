@@ -1,11 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4f7l1aebnne3"]
+[gd_scene load_steps=16 format=3 uid="uid://d4f7l1aebnne3"]
 
 [ext_resource type="Texture2D" uid="uid://cqcjjcuj0bod3" path="res://space-7709489_1280.jpg" id="1_aef54"]
 [ext_resource type="Texture2D" uid="uid://dkbty7hnl7kku" path="res://basketball court 3.jpg" id="2_sto18"]
 [ext_resource type="Texture2D" uid="uid://mricyngb0i03" path="res://OIP-removebg-preview (2).png" id="3_dtyoc"]
+[ext_resource type="Script" path="res://basket.gd" id="4_o40ml"]
 [ext_resource type="PackedScene" uid="uid://clv6snkmfph3y" path="res://character_body_2d.tscn" id="4_pvsue"]
+[ext_resource type="Script" path="res://ui.gd" id="6_nuenl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onn1k"]
+size = Vector2(25.8721, 37.7245)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odgww"]
+size = Vector2(0.557774, 272.904)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq38b"]
+size = Vector2(0.557783, 301.584)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oeupj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48h3b"]
+size = Vector2(94.7209, 38.8036)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylf8v"]
+size = Vector2(106.488, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4l6k0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ej4gs"]
+size = Vector2(90.0141, 21.0783)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6lbn"]
+size = Vector2(95.6042, 43.2349)
 
 [node name="main" type="Node2D"]
 position = Vector2(10, 0)
@@ -24,7 +49,7 @@ texture = ExtResource("1_aef54")
 
 [node name="BasketballCourt3" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.470588)
-position = Vector2(503, 278)
+position = Vector2(503, 280)
 scale = Vector2(0.556509, 0.641548)
 texture = ExtResource("2_sto18")
 
@@ -32,19 +57,56 @@ texture = ExtResource("2_sto18")
 position = Vector2(7.86151, 206.532)
 scale = Vector2(93.1701, 3.58508)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasketballCourt3/StaticBody2D"]
+position = Vector2(-0.0654106, 3.37814)
+rotation = -3.14159
+scale = Vector2(0.761877, -0.454787)
+shape = SubResource("RectangleShape2D_onn1k")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BasketballCourt3/StaticBody2D"]
+position = Vector2(9.67422, -64.0131)
+rotation = -3.14159
+scale = Vector2(0.761877, -0.454787)
+shape = SubResource("RectangleShape2D_odgww")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BasketballCourt3/StaticBody2D"]
+position = Vector2(-9.86291, -56.6218)
+rotation = -3.14159
+scale = Vector2(0.761877, -0.454787)
+shape = SubResource("RectangleShape2D_kq38b")
+
 [node name="Oip-removebg-preview" type="Sprite2D" parent="."]
 position = Vector2(-134, 400)
 scale = Vector2(0.138136, 2.63333)
 texture = SubResource("CompressedTexture2D_oeupj")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
-position = Vector2(510.5, 165.5)
-scale = Vector2(51.65, 1.95)
-
 [node name="Oip-removebg-preview(2)" type="Sprite2D" parent="."]
 position = Vector2(949, 241)
 scale = Vector2(0.424925, 0.451333)
 texture = ExtResource("3_dtyoc")
+
+[node name="Area2D" type="Area2D" parent="Oip-removebg-preview(2)"]
+script = ExtResource("4_o40ml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oip-removebg-preview(2)/Area2D"]
+position = Vector2(-11.7668, 55.3915)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_48h3b")
+
+[node name="Area2D2" type="Area2D" parent="Oip-removebg-preview(2)" groups=["hoop"]]
+position = Vector2(-25.8869, -31.0192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oip-removebg-preview(2)/Area2D2"]
+position = Vector2(14.1201, 31.0192)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ylf8v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Oip-removebg-preview(2)"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oip-removebg-preview(2)/StaticBody2D"]
+position = Vector2(-77.6608, 17.7253)
+shape = SubResource("CircleShape2D_4l6k0")
 
 [node name="Oip-removebg-preview(2)2" type="Sprite2D" parent="."]
 position = Vector2(54, 234)
@@ -52,12 +114,34 @@ scale = Vector2(0.424925, 0.451333)
 texture = ExtResource("3_dtyoc")
 flip_h = true
 
+[node name="Area2D" type="Area2D" parent="Oip-removebg-preview(2)2"]
+position = Vector2(-16.4735, -2.21566)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oip-removebg-preview(2)2/Area2D"]
+position = Vector2(35.007, -0.539124)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ej4gs")
+
+[node name="Area2D2" type="Area2D" parent="Oip-removebg-preview(2)2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oip-removebg-preview(2)2/Area2D2"]
+position = Vector2(13.3852, 51.4993)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_u6lbn")
+
 [node name="world" type="Node2D" parent="."]
 position = Vector2(-1, 0)
 
 [node name="player" parent="world" instance=ExtResource("4_pvsue")]
-position = Vector2(58, 30)
+position = Vector2(177, 358)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(-39.5033, 1.04601)
-metadata/_edit_group_ = true
+[node name="ui" type="CanvasLayer" parent="."]
+script = ExtResource("6_nuenl")
+
+[node name="player 1 scores" type="Label" parent="ui"]
+offset_left = 420.0
+offset_top = 15.0
+offset_right = 460.0
+offset_bottom = 38.0
+
+[connection signal="body_entered" from="Oip-removebg-preview(2)/Area2D" to="Oip-removebg-preview(2)/Area2D" method="_on_body_entered"]

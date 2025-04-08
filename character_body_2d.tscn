@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://clv6snkmfph3y"]
+[gd_scene load_steps=61 format=3 uid="uid://clv6snkmfph3y"]
 
 [ext_resource type="Texture2D" uid="uid://4ryng5k5awxr" path="res://Screenshot_2025-01-29_083510-removebg-preview.png" id="1_sd0me"]
 [ext_resource type="Script" path="res://player.gd" id="1_v63s3"]
@@ -11,8 +11,8 @@
 [ext_resource type="Script" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="9_8vout"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aoaha"]
-radius = 46.0
-height = 222.0
+radius = 15.0
+height = 74.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dhky"]
 atlas = ExtResource("2_78uyh")
@@ -249,9 +249,9 @@ tracks/0/path = NodePath("basketball:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-38.9999, -0.2, 0, 0.2, 0, -32, -0.2, 0, 0.2, 0, -36, -0.2, 0, 0.2, 0),
-"times": PackedFloat32Array(0, 0.2, 0.4)
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-10, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -261,7 +261,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(42, -0.2, 0, 0.2, 0, 93, -0.2, 0, 0.2, 0, 49, -0.2, 0, 0.2, 0),
+"points": PackedFloat32Array(0.5, -0.2, 0, 0.2, 0, 30, -0.2, 0, 0.2, 0, 0.5, -0.2, 0, 0.2, 0),
 "times": PackedFloat32Array(0, 0.2, 0.4)
 }
 tracks/2/type = "value"
@@ -288,9 +288,9 @@ tracks/0/path = NodePath("basketball:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(39, -0.2, 0, 0.2, 0, 39, -0.2, 0, 0.2, 0, 39, -0.2, 0, 0.2, 0),
-"times": PackedFloat32Array(0, 0.2, 0.4)
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(10, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -300,7 +300,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(42, -0.2, 0, 0.2, 0, 93, -0.2, 0, 0.2, 0, 49, -0.2, 0, 0.2, 0),
+"points": PackedFloat32Array(0, -0.2, 0, 0.2, 0, 30, -0.2, 0, 0.2, 0, 0, -0.2, 0, 0.2, 0),
 "times": PackedFloat32Array(0, 0.2, 0.4)
 }
 tracks/2/type = "value"
@@ -376,14 +376,14 @@ metadata/graph_offset = Vector2(362, 22)
 [sub_resource type="Resource" id="Resource_6pkrd"]
 script = ExtResource("6_1me0r")
 name = "falling"
-metadata/graph_offset = Vector2(586, 202)
+metadata/graph_offset = Vector2(626, 282)
 
 [sub_resource type="Resource" id="Resource_alvj5"]
 script = ExtResource("5_1obk3")
 states = {}
 transitions = {}
 name = "jumping"
-metadata/graph_offset = Vector2(503.5, 122)
+metadata/graph_offset = Vector2(523.5, 182)
 
 [sub_resource type="Resource" id="Resource_d2avg"]
 script = ExtResource("6_1me0r")
@@ -393,7 +393,7 @@ metadata/graph_offset = Vector2(185, 122)
 [sub_resource type="Resource" id="Resource_64evp"]
 script = ExtResource("6_1me0r")
 name = "shooting"
-metadata/graph_offset = Vector2(582, 22)
+metadata/graph_offset = Vector2(702, 22)
 
 [sub_resource type="Resource" id="Resource_kb0kx"]
 script = ExtResource("6_1me0r")
@@ -422,6 +422,12 @@ conditions = {
 }
 priority = 0
 
+[sub_resource type="Resource" id="Resource_oacai"]
+script = ExtResource("8_fyp4v")
+value = true
+comparation = 0
+name = "has ball"
+
 [sub_resource type="Resource" id="Resource_yro5b"]
 script = ExtResource("9_8vout")
 name = "space bar"
@@ -431,6 +437,7 @@ script = ExtResource("7_ph5g6")
 from = "dribbling"
 to = "shooting"
 conditions = {
+"has ball": SubResource("Resource_oacai"),
 "space bar": SubResource("Resource_yro5b")
 }
 priority = 0
@@ -464,6 +471,12 @@ conditions = {
 }
 priority = 0
 
+[sub_resource type="Resource" id="Resource_d18yl"]
+script = ExtResource("8_fyp4v")
+value = false
+comparation = 0
+name = "has ball"
+
 [sub_resource type="Resource" id="Resource_aw4f4"]
 script = ExtResource("9_8vout")
 name = "space bar"
@@ -473,15 +486,37 @@ script = ExtResource("7_ph5g6")
 from = "running"
 to = "jumping"
 conditions = {
+"has ball": SubResource("Resource_d18yl"),
 "space bar": SubResource("Resource_aw4f4")
 }
 priority = 0
+
+[sub_resource type="Resource" id="Resource_lf0mr"]
+script = ExtResource("8_fyp4v")
+value = false
+comparation = 0
+name = "has ball"
 
 [sub_resource type="Resource" id="Resource_tefwl"]
 script = ExtResource("7_ph5g6")
 from = "shooting"
 to = "falling"
-conditions = {}
+conditions = {
+"has ball": SubResource("Resource_lf0mr")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_r1eqd"]
+script = ExtResource("9_8vout")
+name = "shot"
+
+[sub_resource type="Resource" id="Resource_8bqxw"]
+script = ExtResource("7_ph5g6")
+from = "shooting"
+to = "running"
+conditions = {
+"shot": SubResource("Resource_r1eqd")
+}
 priority = 0
 
 [sub_resource type="Resource" id="Resource_8ybvy"]
@@ -514,7 +549,8 @@ transitions = {
 "jumping": SubResource("Resource_cuicp")
 },
 "shooting": {
-"falling": SubResource("Resource_tefwl")
+"falling": SubResource("Resource_tefwl"),
+"running": SubResource("Resource_8bqxw")
 }
 }
 name = ""
@@ -526,7 +562,6 @@ script = ExtResource("1_v63s3")
 shape = SubResource("CapsuleShape2D_aoaha")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_chf5b")
 animation = &"shoot"
 flip_h = true
@@ -534,13 +569,9 @@ flip_h = true
 [node name="BoostBallAnimations" type="Sprite2D" parent="."]
 position = Vector2(812, 898)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(434.5, 178)
-scale = Vector2(4.05, 12.3)
-
 [node name="basketball" type="Sprite2D" parent="."]
 position = Vector2(19, -22)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_78uyh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
